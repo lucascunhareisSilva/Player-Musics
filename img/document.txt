@@ -1,0 +1,1 @@
+#aqui fica a img de fundo do index.html principal

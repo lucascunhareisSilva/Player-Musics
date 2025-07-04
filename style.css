@@ -1,0 +1,238 @@
+/* variveis de colors */
+:root{
+  --colorPrincipal : #000000;
+  --colorSecundario : rgba(26, 29, 33, 0.85);
+  --colorTitle : #e1e3eb;
+  --colorPaster: #4077cf;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--colorPrincipal);
+  background-image: url("img/playerMusic.png");
+  background-size: 75%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  background-color: var(--colorSecundario);
+  border-radius: 30px;
+  padding: 30px 35px 40px 40px;
+  width: 880px;
+  height: 580px;
+  min-height: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* muda para começar de cima */
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 85, 255, 0.4),
+  0 0 25px rgba(0, 85, 255, 0.3),
+  0 0 30px rgba(0, 85, 255, 0.2) ;
+  gap: 20px; /* espaçamento entre os blocos */
+
+  /*barra do scrool */
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
+}
+
+
+.title h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  position: sticky;
+  top:0;
+  z-index: 10;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+
+
+.search-box input {
+  width: 350px;
+  padding: 10px 12px;
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #141414;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.1s ease;
+}
+.search-box input:focus{
+  box-shadow: 0 0 10px rgba(64, 119, 207, 0.7);
+}
+.search-box .icon.is-small.is-right{
+  top: 50%;
+  transform: translate(10%,-50%);
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: #4077cf;
+}
+
+/*destacar o input placeholder */
+.search-box input::placeholder{
+  color: #141414;
+  font-weight: bold;
+  opacity: 1;
+}
+
+
+.folders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  text-align: center;
+  padding: 0 10px;
+  width: 100%;
+  flex-grow: 1; /* ocupa o espaço restante */
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4e5795;
+  font-weight: 500;
+}
+
+.folder i {
+  font-size: 40px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--colorPaster);
+  transition: transform 1.2 ease, box-shadow 1.2s ease;
+}
+/* para elemento da icones , cores */
+.folders .folder:nth-child(1) i{
+  color: rgba(247, 2, 2, 80%);
+}
+.folders .folder:nth-child(2) i{
+  color: rgba(235, 247, 2, 80%);
+}
+.folders .folder:nth-child(3) i{
+  color:rgba(11, 180, 191, 80%);
+}
+.folders .folder:nth-child(4) i{
+  color: rgba(47, 145, 42, 80%);
+}
+.folders .folder:nth-child(5) i{
+  color:rgba(237, 60, 17, 80%);
+}
+.folders .folder:nth-child(6) i{
+  color:rgba(220, 232, 223, 80%);
+}
+.folders .folder:nth-child(7) i{
+  color: rgba(2, 27, 242, 80%);
+}
+.folders .folder:nth-child(8) i{
+  color: rgba(92, 2, 247, 80%);
+}
+.folders .folder:nth-child(9) i{
+  color: rgba(252, 3, 202, 80%);
+}
+.folders .folder:nth-child(10) i{
+  color: rgba(3, 252, 240, 80%);
+}
+
+
+
+
+/*efeito dos buttons */
+.folder i:hover{
+  transform: scale(1.2);
+}
+
+/*link insta */
+.insta-link{
+  text-decoration: none;
+  color: var(--colorTitle);
+/*link pasta */
+.folder_link{
+  text-decoration: none;
+  color: var(--colorPaster);
+}
+
+}
+.footer {
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  background-color: transparent;
+  margin-bottom: 5px;
+}
+.footer p{
+  color: var(--colorTitle);
+}
+/*responsivo para mobile */
+@media screen and (max-width: 768px){
+  body{
+    background-size: 90%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  .content{
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(64, 119, 207, 0.6);
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    padding: 20px 15px;
+  }
+
+  /*estilizando scrollbar para os navegadores */
+  .content::-webkit-scrollbar{
+    width: 8px;
+  }
+
+  .content::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 8px;
+  }
+  .content::-webkit-scrollbar-thumb{
+    background-color: rgba(64, 119, 207, 0.6);
+    border-radius: 10px;
+    border:2px solid transparent;
+    background-clip: content-box;
+  }
+  .search-box{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .search-box input{
+    width: 100%;
+  }
+}
